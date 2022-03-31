@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane prefHeight="663.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.SecondaryController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Back">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <bottom>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="13.0" layoutY="63.0" prefHeight="49.0" prefWidth="279.0" text="Select Age Demographic:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="218.0" prefHeight="44.0" prefWidth="205.0" text="Select Ethnicity:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="2.0" layoutY="344.0" prefHeight="35.0" prefWidth="302.0" text="Select Vaccination Status:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <VBox layoutX="292.0" layoutY="20.0" prefHeight="166.0" prefWidth="236.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="&gt; 18 ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ageDemo" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="19-30" toggleGroup="$ageDemo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="31-40" toggleGroup="$ageDemo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="41-50" toggleGroup="$ageDemo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="50+" toggleGroup="$ageDemo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" selected="true" text="Rather Not Say" toggleGroup="$ageDemo">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox layoutX="291.0" layoutY="197.0" prefHeight="174.0" prefWidth="239.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="RadioButton">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ethn" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$ethn" />
+                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$ethn" />
+                  <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$ethn" />
+                  <RadioButton mnemonicParsing="false" selected="true" text="Rather Not Say" toggleGroup="$ethn">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox layoutX="278.0" layoutY="340.0" prefHeight="63.0" prefWidth="241.0">
+               <children>
+                  <RadioButton mnemonicParsing="false" text="Yes, I am Vaccinated">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton mnemonicParsing="false" selected="true" text="No, I am not Vaccinated">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="VaccStatus" />
+                     </toggleGroup>
+                  </RadioButton>
+               </children>
+            </VBox>
+            <VBox layoutX="24.0" layoutY="403.0" prefHeight="200.0" prefWidth="479.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package com.mycompany.csc325covidtracker;
 
@@ -11,11 +12,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
- * FXML Controller class
  *
- * @author nicka
+ * @author sulem
  */
-public class Secondary_2_1Controller implements Initializable {
+public class Secondary_2Controller implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -25,7 +25,7 @@ public class Secondary_2_1Controller implements Initializable {
         // TODO
     }    
     
-    @FXML
+    @FXML 
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }

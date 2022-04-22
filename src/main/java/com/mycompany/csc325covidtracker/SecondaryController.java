@@ -12,7 +12,8 @@ public class SecondaryController {
     private ToggleGroup ethn;
     @FXML
     private ToggleGroup VaccStatus;
-
+    
+    @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }

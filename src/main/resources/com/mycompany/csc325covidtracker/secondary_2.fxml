@@ -5,16 +5,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.Secondary_1Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.Secondary_2Controller">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
          <menus>
-            <Menu mnemonicParsing="false" text="Back" />
+            <Menu mnemonicParsing="false" text="Back">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToPrimary" text="Return" />
+               </items></Menu>
          </menus>
       </MenuBar>
    </top>

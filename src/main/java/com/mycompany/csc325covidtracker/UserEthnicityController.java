@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author sulem
  */
-public class Secondary_2Controller implements Initializable {
+public class UserEthnicityController implements Initializable {
 
     /**
      * Initializes the controller class.

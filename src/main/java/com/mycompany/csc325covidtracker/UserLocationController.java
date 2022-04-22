@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
  *
  * @author nicka
  */
-public class Secondary_1Controller implements Initializable {
+public class UserLocationController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -24,6 +24,7 @@ public class Secondary_1Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");

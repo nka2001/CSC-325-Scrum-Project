@@ -6,24 +6,24 @@ import javafx.fxml.FXML;
 public class PrimaryController {
     
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private void switchToUserInfo() throws IOException {
+        App.setRoot("userinfo");
     }
     
     
     @FXML
     private void switchToAge() throws IOException{
-        App.setRoot("secondary_1");
+        App.setRoot("userage");
     }
     
     @FXML
     private void switchToLocation() throws IOException{
-        App.setRoot("secondary_2_1");
+        App.setRoot("userLocation");
     }
     
     @FXML
     private void switchToEthnicity() throws IOException{
-        App.setRoot("secondary_2");
+        App.setRoot("userEthicity");
     }
     
     @FXML

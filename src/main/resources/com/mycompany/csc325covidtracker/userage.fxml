@@ -11,15 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.Secondary_2Controller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="410.0" prefWidth="424.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.UserAgeController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
-         <menus>
-            <Menu mnemonicParsing="false" text="Back">
+        <menus>
+          <Menu mnemonicParsing="false" text="Back">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#switchToPrimary" text="Return" />
                </items></Menu>
-         </menus>
+        </menus>
       </MenuBar>
    </top>
    <center>
@@ -27,34 +27,34 @@
          <children>
             <VBox layoutX="23.0" layoutY="51.0" prefHeight="175.0" prefWidth="374.0">
                <children>
-                  <CheckBox mnemonicParsing="false" text="1">
+                  <CheckBox mnemonicParsing="false" text="&gt; 18">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="2">
+                  <CheckBox mnemonicParsing="false" text="19-30">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="3">
+                  <CheckBox mnemonicParsing="false" text="31-40">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="4">
+                  <CheckBox mnemonicParsing="false" text="41-50">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
-                  <CheckBox mnemonicParsing="false" text="5">
+                  <CheckBox mnemonicParsing="false" text="50+">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </CheckBox>
                </children>
             </VBox>
-            <Label layoutX="28.0" layoutY="14.0" prefHeight="17.0" prefWidth="369.0" text="Include / Exclude Ethnicity">
+            <Label layoutX="28.0" layoutY="14.0" prefHeight="17.0" prefWidth="369.0" text="Include / Exclude Age Demographic:">
                <font>
                   <Font size="18.0" />
                </font>

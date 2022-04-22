@@ -4,7 +4,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 
-public class SecondaryController {
+public class UserInfoController {
 
     @FXML
     private ToggleGroup ageDemo;

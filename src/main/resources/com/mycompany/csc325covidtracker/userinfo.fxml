@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="663.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.UserInfoController">
+<BorderPane prefHeight="663.0" prefWidth="543.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.UserInfoController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
@@ -20,6 +20,11 @@
               <MenuItem mnemonicParsing="false" onAction="#switchToPrimary" text="Return" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#Help" text="Help" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
    </top>

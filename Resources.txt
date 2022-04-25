@@ -1,0 +1,24 @@
+Resources used in this program are: 
+
+API's: 
+
+
+
+
+
+
+backup API: 
+
+
+
+
+
+
+
+
+
+
+
+Github: 
+
+https://github.com/nka2001/CSC-325-Scrum-Project

@@ -1,0 +1,5 @@
+Welcome to the COVID-19 Data Tracker and Recommendation Generator! 
+
+This document will outline how to use the different functions within this program, 
+
+

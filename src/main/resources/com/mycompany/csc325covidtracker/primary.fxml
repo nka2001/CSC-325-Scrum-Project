@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="910.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.PrimaryController">
+<BorderPane prefHeight="910.0" prefWidth="1065.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325covidtracker.PrimaryController">
    <top>
       <AnchorPane prefHeight="132.0" prefWidth="1065.0" BorderPane.alignment="CENTER">
          <children>
@@ -29,8 +29,8 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
-                        <MenuItem mnemonicParsing="false" text="Resources" />
+                    <MenuItem mnemonicParsing="false" onAction="#Help" text="About" />
+                        <MenuItem mnemonicParsing="false" onAction="#showResources" text="Resources" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" onAction="#close" text="Close">

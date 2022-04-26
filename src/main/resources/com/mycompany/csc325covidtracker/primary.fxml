@@ -48,10 +48,10 @@
          </children>
       </AnchorPane>
    </top>
-   <bottom>
-      <ListView prefHeight="263.0" prefWidth="1065.0" BorderPane.alignment="CENTER" />
-   </bottom>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <ListView fx:id="ListView" layoutY="515.0" prefHeight="263.0" prefWidth="1065.0" />
+         </children></AnchorPane>
    </center>
 </BorderPane>

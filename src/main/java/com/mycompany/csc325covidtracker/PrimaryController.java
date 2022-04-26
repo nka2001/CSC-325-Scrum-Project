@@ -1,16 +1,43 @@
 package com.mycompany.csc325covidtracker;
 
+
+import static com.mycompany.csc325covidtracker.Covid19Api.myApi;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.stage.FileChooser;
+import org.json.simple.JSONObject;
 
 public class PrimaryController {
+
+    @FXML
+    private ListView<String> ListView;
+    
+  
+    
+    
+    private void initalize(){
+        JSONObject obj = myApi();
+        
+        JSONObject obj1 = (JSONObject) obj.get("Global");
+        System.out.println("\tNew Confrimed: " + obj1.get("NewConfirmed"));
+        System.out.println("\tTotal Confirmed: " + obj1.get("TotalConfirmed"));
+        System.out.println("\tNew Deaths: " + obj1.get("NewDeaths"));
+        System.out.println("\tTotal Deaths: " + obj1.get("TotalDeaths"));
+        System.out.println("\tNew Recovered: " + obj1.get("NewRecovered"));
+        System.out.println("\tTotal Recovered: " + obj1.get("TotalRecovered"));
+        
+        
+    }
+    
     
     @FXML
     private void switchToUserInfo() throws IOException {
+        
+      
         App.setRoot("userinfo");
     }
     

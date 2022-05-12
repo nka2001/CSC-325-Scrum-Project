@@ -5,30 +5,153 @@ import static com.mycompany.csc325covidtracker.Covid19Api.myApi;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
+import javafx.animation.FadeTransition;
+import javafx.animation.SequentialTransition;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.BubbleChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.StackedAreaChart;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.util.Duration;
 import org.json.simple.JSONObject;
 
 public class PrimaryController {
 
     @FXML
-    private ListView<String> ListView;
+    private VBox eth1;
+    @FXML
+    private CheckBox eth2;
+    @FXML
+    private CheckBox eth3;
+    @FXML
+    private CheckBox eth4;
+    @FXML
+    private CheckBox eth5;
+    @FXML
+    private Button update;
+    @FXML
+    private CheckBox age1;
+    @FXML
+    private CheckBox age2;
+    @FXML
+    private CheckBox age3;
+    @FXML
+    private CheckBox age4;
+    @FXML
+    private CheckBox age5;
+    @FXML
+    private Button update2;
+    @FXML
+    private BarChart<?, ?> bar;
+    @FXML
+    private PieChart pie;
+    @FXML
+    private StackedAreaChart<?, ?> stack2;
+    @FXML
+    private BubbleChart<?, ?> bubble;
+    @FXML
+    private BubbleChart<?, ?> bubble1;
+    @FXML
+    private RadioButton uage1;
+    @FXML
+    private ToggleGroup ageDemo;
+    @FXML
+    private RadioButton uage2;
+    @FXML
+    private RadioButton uage3;
+    @FXML
+    private RadioButton uage4;
+    @FXML
+    private RadioButton uage5;
+    @FXML
+    private RadioButton uageNotSay;
+    @FXML
+    private RadioButton ueth1;
+    @FXML
+    private ToggleGroup ethn;
+    @FXML
+    private RadioButton ueth2;
+    @FXML
+    private RadioButton ueth3;
+    @FXML
+    private RadioButton ueth4;
+    @FXML
+    private RadioButton uethNotSay;
+    @FXML
+    private RadioButton yesVacc;
+    @FXML
+    private RadioButton noVacc;
+    @FXML
+    private ToggleGroup VaccStatus;
+    @FXML
+    private RadioButton VaxNotSay;
+    @FXML
+    private ToggleGroup VaccStatus1;
+    @FXML
+    private Button submitUserInfo;
     
   
     
     
-    private void initalize(){
-        JSONObject obj = myApi();
+   public void initialize(){
+       
+        startAnimations();
+        //make the animations start before populating the charts
         
-        JSONObject obj1 = (JSONObject) obj.get("Global");
-        System.out.println("\tNew Confrimed: " + obj1.get("NewConfirmed"));
-        System.out.println("\tTotal Confirmed: " + obj1.get("TotalConfirmed"));
-        System.out.println("\tNew Deaths: " + obj1.get("NewDeaths"));
-        System.out.println("\tTotal Deaths: " + obj1.get("TotalDeaths"));
-        System.out.println("\tNew Recovered: " + obj1.get("NewRecovered"));
-        System.out.println("\tTotal Recovered: " + obj1.get("TotalRecovered"));
+          
+        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
+                new PieChart.Data("Test", 50)
+        
+        );
+        
+        pie.setData(pieData);
+        /*
+        xAxis.setLabel("Age Demographics");
+        yAxis.setLabel("Cases");
+        
+        bar = new BarChart<String, Number>(xAxis, yAxis);
+        
+        XYChart.Series s1 = new XYChart.Series();
+        s1.getData().add(new XYChart.Data("18+", 100));
+        
+        
+       bar.getData().add(s1);
+        */
+    }
+    /**
+     * this method will make all of our charts appear slowly, they SHOULD be filled with data, fadeTransitions are used to make the charts appear
+     * and the opacity value is used to make the charts fade in and out 
+     */
+    private void startAnimations(){
+        
+        FadeTransition ft1 = new FadeTransition(Duration.seconds(5), pie);
+        ft1.setFromValue(0.);
+        ft1.setToValue(1.);
+        
+        FadeTransition ft2 = new FadeTransition(Duration.seconds(5), bar);
+        ft2.setFromValue(0.);
+        ft2.setToValue(1.);
+
+        FadeTransition ft3 = new FadeTransition(Duration.seconds(5), stack2);
+        ft3.setFromValue(0.);
+        ft3.setToValue(1.);
+        
+        FadeTransition ft4 = new FadeTransition(Duration.seconds(5), bubble);
+        ft4.setFromValue(0.);
+        ft4.setToValue(1.);
+        
+        SequentialTransition st = new SequentialTransition(ft1, ft2, ft3, ft4);
+        st.play();
         
         
     }
@@ -87,5 +210,17 @@ public class PrimaryController {
         Desktop d = Desktop.getDesktop();//use the desktop function to launch the file 
         d.open(resourceFile);//open and display the file
         
+    }
+
+    @FXML
+    private void updateChartsEthnicites(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateChartsAges(ActionEvent event) {
+    }
+
+    @FXML
+    private void updateSubmit(ActionEvent event) {
     }
 }

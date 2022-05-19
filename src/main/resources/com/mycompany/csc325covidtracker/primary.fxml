@@ -229,22 +229,19 @@
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </RadioButton>
-                  <RadioButton fx:id="noVacc" mnemonicParsing="false" selected="true" text="No, I am not Vaccinated">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
                      <toggleGroup>
                         <ToggleGroup fx:id="VaccStatus" />
                      </toggleGroup>
                   </RadioButton>
-                  <RadioButton fx:id="VaxNotSay" mnemonicParsing="false" selected="true" text="Rather Not Say">
+                  <RadioButton fx:id="noVacc" mnemonicParsing="false" selected="true" text="No, I am not Vaccinated" toggleGroup="$VaccStatus">
                      <font>
                         <Font size="18.0" />
                      </font>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="VaccStatus1" />
-                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="VaxNotSay" mnemonicParsing="false" selected="true" text="Rather Not Say" toggleGroup="$VaccStatus">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
                   </RadioButton>
                </children>
             </VBox>

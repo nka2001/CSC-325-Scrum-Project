@@ -2,6 +2,7 @@ package com.mycompany.csc325covidtracker;
 
 
 import static com.mycompany.csc325covidtracker.Covid19Api.myApi;
+import static com.mycompany.csc325covidtracker.CovidActNow.myApi2;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +16,8 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.BubbleChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedAreaChart;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
@@ -216,19 +219,32 @@ public class PrimaryController {
 
     @FXML
     private void updateChartsEthnicites(ActionEvent event) {
+        
+        
+        
+        
     }
 
     @FXML
     private void updateChartsAges(ActionEvent event) {
+        
+        
+        
     }
 
     @FXML
     private void updateSubmit(ActionEvent event) {
-        
+
         String getState = enterState.getText();
         
         if(getState.length() > 2){
             System.out.println("error, only 2 letters for the state");
+            getState = "Null";
+            
+            Alert a = new Alert(AlertType.ERROR);
+            a.setHeaderText("Error, States should be entered as their respective 2 letter abbreviations");
+            a.setTitle("Input Error");
+            a.showAndWait();
             //maybe make a method that prints out an error alert
         }
         
@@ -253,8 +269,18 @@ public class PrimaryController {
             age = uage4.getText();
         } else if(uage5.isSelected()){
             age = uage5.getText();
+        } else if(uageNotSay.isSelected()) {
+            age = uageNotSay.getText();
         } else {
             age = "Error";
+        }
+        
+        String recommendUser = "";
+        
+        if(age.equals("Rather Not Say") || getState.equals("") || vaccineStatus.equals("Rather Not Say")){
+            
+            recommendUser = "based on your input, we are unable to generate a completly accurate recommendation, however based on your input, we recommend that...";
+            
         }
     }
 }

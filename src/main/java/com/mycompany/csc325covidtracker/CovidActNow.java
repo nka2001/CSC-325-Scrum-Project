@@ -38,9 +38,9 @@ public class CovidActNow {
                 while (sc.hasNext()) {
                     inline += sc.nextLine();
                 }
-            System.out.println("\nJSON data in string format");
-              System.out.println(inline);
-                sc.close();
+//            System.out.println("\nJSON data in string format");
+//            System.out.println(inline);
+            sc.close();
 
                 JSONParser parse = new JSONParser();
                 JSONObject data_obj = (JSONObject) parse.parse(inline);

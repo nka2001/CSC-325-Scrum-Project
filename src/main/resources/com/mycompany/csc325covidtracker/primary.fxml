@@ -14,6 +14,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -185,7 +186,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <VBox layoutX="34.0" layoutY="351.0" prefHeight="174.0" prefWidth="239.0">
+            <VBox layoutX="29.0" layoutY="316.0" prefHeight="174.0" prefWidth="239.0">
                <children>
                   <RadioButton fx:id="ueth1" mnemonicParsing="false" text="RadioButton">
                      <toggleGroup>
@@ -217,12 +218,12 @@
                   </RadioButton>
                </children>
             </VBox>
-            <Label layoutX="30.0" layoutY="300.0" prefHeight="44.0" prefWidth="205.0" text="Select Ethnicity:">
+            <Label layoutX="30.0" layoutY="282.0" prefHeight="44.0" prefWidth="205.0" text="Select Ethnicity:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <VBox layoutX="33.0" layoutY="557.0" prefHeight="104.0" prefWidth="241.0">
+            <VBox layoutX="28.0" layoutY="500.0" prefHeight="104.0" prefWidth="241.0">
                <children>
                   <RadioButton fx:id="yesVacc" mnemonicParsing="false" text="Yes, I am Vaccinated">
                      <font>
@@ -247,12 +248,13 @@
                   </RadioButton>
                </children>
             </VBox>
-            <Label layoutX="29.0" layoutY="508.0" prefHeight="35.0" prefWidth="302.0" text="Select Vaccination Status:">
+            <Button fx:id="submitUserInfo" layoutX="94.0" layoutY="702.0" mnemonicParsing="false" onAction="#updateSubmit" prefHeight="29.0" prefWidth="117.0" text="Submit" />
+            <Label layoutX="34.0" layoutY="473.0" prefHeight="35.0" prefWidth="302.0" text="Select Vaccination Status:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="submitUserInfo" layoutX="92.0" layoutY="677.0" mnemonicParsing="false" onAction="#updateSubmit" prefHeight="29.0" prefWidth="117.0" text="Submit" />
+            <TextField fx:id="enterState" layoutX="58.0" layoutY="621.0" />
          </children>
       </AnchorPane>
    </right>

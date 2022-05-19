@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -99,7 +100,8 @@ public class PrimaryController {
     private ToggleGroup VaccStatus1;
     @FXML
     private Button submitUserInfo;
-    
+    @FXML 
+    private TextField enterState;
   
     
     
@@ -222,5 +224,37 @@ public class PrimaryController {
 
     @FXML
     private void updateSubmit(ActionEvent event) {
+        
+        String getState = enterState.getText();
+        
+        if(getState.length() > 2){
+            System.out.println("error, only 2 letters for the state");
+            //maybe make a method that prints out an error alert
+        }
+        
+        String vaccineStatus = "";
+        
+        if(yesVacc.isSelected()){
+            vaccineStatus = yesVacc.getText();
+        } else if(noVacc.isSelected()){
+            vaccineStatus = noVacc.getText();
+        } else if(VaxNotSay.isSelected()) {
+            vaccineStatus = VaxNotSay.getText();
+        }
+
+        String age = "";
+        if(uage1.isSelected()){
+            age = uage1.getText();
+        } else if(uage2.isSelected()){
+            age = uage2.getText();
+        } else if(uage3.isSelected()){
+            age = uage3.getText();
+        } else if(uage4.isSelected()){
+            age = uage4.getText();
+        } else if(uage5.isSelected()){
+            age = uage5.getText();
+        } else {
+            age = "Error";
+        }
     }
 }

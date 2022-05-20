@@ -3,3 +3,34 @@ Welcome to the COVID-19 Data Tracker and Recommendation Generator!
 This document will outline how to use the different functions within this program, 
 
 
+The startAnimations() method-
+
+this method is used to make the charts appear within the Applications GUI
+
+
+The Help() Method-
+
+This method will open this text file to explain the functions within
+the Application
+
+the showResources method-
+
+This method will open Another a text file that shows the information
+    
+ used in the Application, such as the API as well as the link to the project on github
+
+The updateChartsEthnicites method- this will update the main bar chart used in the GUI based
+ on including or excluding ethnicity data However this Functionality has currently not been implemented within the application 
+ 
+
+The updateChartsAges method-this will update the main bar chart used in the GUI based
+ on including or excluding data based on age demographic However this Functionality has currently not been implemented within the application 
+
+The close() method-
+
+this method is used to close the Application 
+
+
+The updateSubmit() method-
+
+This method is used to get the User's information and produce a COVID 19 recommendation 

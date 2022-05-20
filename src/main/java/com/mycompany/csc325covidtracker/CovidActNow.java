@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.csc325covidtracker;
 
 import java.net.HttpURLConnection;
@@ -16,7 +12,7 @@ import org.json.simple.parser.JSONParser;
  */
 public class CovidActNow {
 
-    public static JSONObject myApi2(){
+ 
 
     public static JSONObject al() {
         try {

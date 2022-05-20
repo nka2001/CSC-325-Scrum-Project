@@ -16,6 +16,8 @@ import org.json.simple.parser.JSONParser;
  */
 public class CovidActNow {
 
+    public static JSONObject myApi2(){
+
     public static JSONObject al() {
         try {
 
@@ -1938,10 +1940,10 @@ public class CovidActNow {
                 String inline = "";
                 Scanner sc = new Scanner(url.openStream());
                 while (sc.hasNext()) {
-                    inline += sc.nextLine();
+                    inline += sc.nextLine() + "\n";
                 }
-//            System.out.println("\nJSON data in string format");
-//            System.out.println(inline);
+            System.out.println("\nJSON data in string format");
+           System.out.println(inline);
             sc.close();
 
                 JSONParser parse = new JSONParser();
@@ -1952,5 +1954,6 @@ public class CovidActNow {
             e.printStackTrace();
         }
         return null;
+
     }
 }

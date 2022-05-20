@@ -57,7 +57,6 @@ public class PrimaryController {
     private Button update2;
     @FXML
     private BarChart<?, ?> bar;
-    @FXML
     private PieChart pie;
     private StackedAreaChart<?, ?> stack2;
     private BubbleChart<?, ?> bubble;
@@ -108,11 +107,7 @@ public class PrimaryController {
         startAnimations();
         //make the animations start before populating the charts
 
-        ObservableList<PieChart.Data> pieData = FXCollections.observableArrayList(
-                new PieChart.Data("Test", 50)
-        );
-
-        pie.setData(pieData);
+        
 
         JSONObject obj = al();//Alabama data
         JSONObject obj1 = (JSONObject) obj.get("actuals");
@@ -289,38 +284,15 @@ public class PrimaryController {
      */
     private void startAnimations() {
 
-        FadeTransition ft1 = new FadeTransition(Duration.seconds(5), pie);
-        ft1.setFromValue(0.);
-        ft1.setToValue(1.);
+     
 
         FadeTransition ft2 = new FadeTransition(Duration.seconds(5), bar);
         ft2.setFromValue(0.);
         ft2.setToValue(1.);
 
-        SequentialTransition st = new SequentialTransition(ft1, ft2);
+        SequentialTransition st = new SequentialTransition( ft2);
         st.play();
 
-    }
-
-    @FXML
-    private void switchToUserInfo() throws IOException {
-
-        App.setRoot("userinfo");
-    }
-
-    @FXML
-    private void switchToAge() throws IOException {
-        App.setRoot("userage");
-    }
-
-    @FXML
-    private void switchToLocation() throws IOException {
-        App.setRoot("userLocation");
-    }
-
-    @FXML
-    private void switchToEthnicity() throws IOException {
-        App.setRoot("userEthicity");
     }
 
     /**

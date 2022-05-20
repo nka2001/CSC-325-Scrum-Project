@@ -417,110 +417,112 @@ public class PrimaryController {
         }
         String finalState ="";
         String toUpperCase = getState.toUpperCase();
+        
+        //the following if/else-if/else statements check for valid state abbreviations, if there is no valid abbreviation then finalState is set to null
         if(toUpperCase.equals("AL")){
-            
+            finalState = "AL";
         } else if(toUpperCase.equals("AK")){
-            
+            finalState = "AK";
         } else if(toUpperCase.equals("AZ")){
-            
+            finalState = "AZ";
         } else if(toUpperCase.equals("AR")){
-            
+            finalState = "AR";
         } else if(toUpperCase.equals("CA")){
-            
+            finalState = "CA";
         } else if(toUpperCase.equals("CO")){
-            
+            finalState = "CO";
         } else if(toUpperCase.equals("CT")){
-            
+            finalState = "CT";
         } else if(toUpperCase.equals("DE")){
-            
+            finalState = "DE";
         } else if(toUpperCase.equals("DC")){
-            
+            finalState = "DC";
         } else if(toUpperCase.equals("FL")){
-            
+            finalState = "FL";
         } else if(toUpperCase.equals("GA")){
-            
+            finalState = "GA";
         } else if(toUpperCase.equals("HI")){
-            
+            finalState = "HI";
         } else if(toUpperCase.equals("ID")){
-            
+            finalState = "ID";
         } else if(toUpperCase.equals("IL")){
-            
+            finalState = "IL";
         } else if(toUpperCase.equals("IN")){
-            
+            finalState = "IN";
         } else if(toUpperCase.equals("IA")){
-            
+            finalState = "IA";
         } else if(toUpperCase.equals("KS")){
-            
+            finalState = "KS";
         } else if(toUpperCase.equals("KY")){
-            
+            finalState = "KY";
         } else if(toUpperCase.equals("LA")){
-            
+            finalState = "LA";
         } else if(toUpperCase.equals("ME")){
-            
+            finalState = "ME";
         } else if(toUpperCase.equals("MD")){
-            
+            finalState = "MD";
         } else if(toUpperCase.equals("MA")){
-            
+            finalState = "MA";
         } else if(toUpperCase.equals("MI")){
-            
+            finalState = "MI";
         } else if(toUpperCase.equals("MN")){
-            
+            finalState = "MN";
         } else if(toUpperCase.equals("MS")){
-            
+            finalState = "MS";
         } else if(toUpperCase.equals("MO")){
-            
+            finalState = "MO";
         } else if(toUpperCase.equals("MT")){
-            
+            finalState = "MT";
         } else if(toUpperCase.equals("NE")){
-            
+            finalState = "NE";
         } else if(toUpperCase.equals("NV")){
-            
+            finalState = "NV";
         } else if(toUpperCase.equals("NH")){
-            
+            finalState = "NH";
         } else if(toUpperCase.equals("NJ")){
-            
+            finalState = "NJ";
         } else if(toUpperCase.equals("NM")){
-            
+            finalState = "NM";
         } else if(toUpperCase.equals("NY")){
-            
+            finalState = "NY";
         } else if(toUpperCase.equals("NC")){
-            
+            finalState = "NC";
         } else if(toUpperCase.equals("ND")){
-            
+            finalState = "ND";
         } else if(toUpperCase.equals("OH")){
-            
+            finalState = "OH";
         } else if(toUpperCase.equals("OK")){
-            
+            finalState = "OK";
         } else if(toUpperCase.equals("OR")){
-            
+            finalState = "OR";
         } else if(toUpperCase.equals("PA")){
-            
+            finalState = "PA";
         } else if(toUpperCase.equals("PR")){
-            
+            finalState = "PR";
         } else if(toUpperCase.equals("RI")){
-            
+            finalState = "RI";
         } else if(toUpperCase.equals("SC")){
-            
+            finalState = "SC";
         } else if(toUpperCase.equals("SD")){
-            
+            finalState = "SD";
         } else if(toUpperCase.equals("TN")){
-            
+            finalState = "TN";
         } else if(toUpperCase.equals("TX")){
-            
+            finalState = "TX";
         } else if(toUpperCase.equals("UT")){
-            
+            finalState = "UT";
         } else if(toUpperCase.equals("VT")){
-            
+            finalState = "VT";
         } else if(toUpperCase.equals("VA")){
-            
+            finalState = "VA";
         } else if(toUpperCase.equals("WA")){
-            
+            finalState = "WA";
         } else if(toUpperCase.equals("WV")){
-            
+            finalState = "WV";
         } else if(toUpperCase.equals("WI")){
-            
+            finalState = "WI";
         } else if(toUpperCase.equals("WY")){
-            
+            finalState = "WY";
         } else {
             finalState = "Null";
         }
@@ -555,7 +557,7 @@ public class PrimaryController {
 
         String recommendUser = "";
 
-        if (age.equals("Rather Not Say") || getState.equals("") || vaccineStatus.equals("Rather Not Say")) {
+        if (age.equals("Rather Not Say") || finalState.equals("Null") || vaccineStatus.equals("Rather Not Say")) {
 
             recommendUser = "based on your input, we are unable to generate a completly accurate recommendation, however based on your input, we recommend that...";
 

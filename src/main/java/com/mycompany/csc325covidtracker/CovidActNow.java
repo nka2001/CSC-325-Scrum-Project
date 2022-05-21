@@ -1938,8 +1938,8 @@ public class CovidActNow {
                 while (sc.hasNext()) {
                     inline += sc.nextLine() + "\n";
                 }
-            System.out.println("\nJSON data in string format");
-           System.out.println(inline);
+//            System.out.println("\nJSON data in string format");
+//           System.out.println(inline);
             sc.close();
 
                 JSONParser parse = new JSONParser();

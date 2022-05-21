@@ -20,8 +20,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.VBox;
@@ -34,25 +36,7 @@ public class PrimaryController {
     @FXML
     private VBox eth1;
     @FXML
-    private CheckBox eth2;
-    @FXML
-    private CheckBox eth3;
-    @FXML
-    private CheckBox eth4;
-    @FXML
-    private CheckBox eth5;
-    @FXML
     private Button update;
-    @FXML
-    private CheckBox age1;
-    @FXML
-    private CheckBox age2;
-    @FXML
-    private CheckBox age3;
-    @FXML
-    private CheckBox age4;
-    @FXML
-    private CheckBox age5;
     @FXML
     private Button update2;
     @FXML
@@ -98,16 +82,22 @@ public class PrimaryController {
     private Button submitUserInfo;
     @FXML
     private TextField enterState;
-    
+    @FXML
+    private Label rcd;
+    @FXML
+    private Label rcd2;
+    @FXML
+    private Label rcd3;
+    @FXML
+    private Label recomendation;
+
     //the following array is full of state abbriviations for input validation
-    private String[] stateList = {"AL", "AK","AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO","MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV","WI","WY","NULL"};
+    private String[] stateList = {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "NULL"};
 
     public void initialize() {
 
         startAnimations();
         //make the animations start before populating the charts
-
-        
 
         JSONObject obj = al();//Alabama data
         JSONObject obj1 = (JSONObject) obj.get("actuals");
@@ -180,6 +170,8 @@ public class PrimaryController {
         JSONObject NCobj = (JSONObject) obj36.get("actuals");
         JSONObject obj37 = nd();//north dakota data
         JSONObject NDobj = (JSONObject) obj37.get("actuals");
+
+        System.out.println(NYobj);
 
         JSONObject obj39 = oh();//ohio data
         JSONObject OHobj = (JSONObject) obj39.get("actuals");
@@ -275,6 +267,25 @@ public class PrimaryController {
         s1.getData().add(new XYChart.Data("Wyoming", WYobj.get("newCases")));//add wyoming data to bar chart
         bar.getData().add(s1);
 
+        rcd.setText("United States Covid Data Breakdown" + " (If you want to check data for specific state please enter State Abbreviation in the text field on the right)");
+        JSONObject us = us();
+        us = (JSONObject) us.get("actuals");
+
+            recomendation.setText("New Cases: " + us.get("newCases")
+                    +"\nAll time cases: " + us.get("cases") 
+                    + "\nPositive Tests: " + us.get("positiveTests") 
+                    + "\nVaccines Distributed: " + us.get("vaccinesDistributed") 
+                    + "\nVaccines Administered: " + us.get("vaccinesAdministered"));
+//            
+            rcd2.setText("New Deaths: " + us.get("newDeaths") + "\nAll time Deaths: " + us.get("deaths") 
+                    + "\nNegative Tests: " + us.get("negativeTests")+ "\nVaccines Initiated: " + us.get("vaccinationsInitiated")
+                    + "\nAvailaible ICU Beds: " + ((JSONObject)us.get("icuBeds")).get("capacity"));
+//      
+            us = us();
+            us = (JSONObject) us.get("metrics");
+            rcd3.setText("Positivity Ratio: " + us.get("testPositivityRatio") + "\nCase Density: " + us.get("caseDensity") 
+                    + "\nWeekly New Cases Per 100k: " + us.get("weeklyNewCasesPer100k")+ "\nInfection Rate: " + us.get("infectionRate")
+                    +"\nVaccines Completed Ratio: " + us.get("vaccinationsCompletedRatio"));
     }
 
     /**
@@ -284,13 +295,11 @@ public class PrimaryController {
      */
     private void startAnimations() {
 
-     
-
         FadeTransition ft2 = new FadeTransition(Duration.seconds(5), bar);
         ft2.setFromValue(0.);
         ft2.setToValue(1.);
 
-        SequentialTransition st = new SequentialTransition( ft2);
+        SequentialTransition st = new SequentialTransition(ft2);
         st.play();
 
     }
@@ -385,120 +394,174 @@ public class PrimaryController {
             a.setHeaderText("Error, States should be entered as their respective 2 letter abbreviations");
             a.setTitle("Input Error");
             a.showAndWait();//keep the alert showing until the user removes it 
-            
+
         }
-        String finalState ="";
+        String finalState = "";
         String toUpperCase = getState.toUpperCase();
-        
+        JSONObject data = null;
         //the following if/else-if/else statements check for valid state abbreviations, if there is no valid abbreviation then finalState is set to null
-        if(toUpperCase.equals("AL")){
+        if (toUpperCase.equals("AL")) {
             finalState = "AL";
-        } else if(toUpperCase.equals("AK")){
+            data = al();
+        } else if (toUpperCase.equals("AK")) {
             finalState = "AK";
-        } else if(toUpperCase.equals("AZ")){
+            data = ak();
+        } else if (toUpperCase.equals("AZ")) {
             finalState = "AZ";
-        } else if(toUpperCase.equals("AR")){
+            data = az();
+        } else if (toUpperCase.equals("AR")) {
             finalState = "AR";
-        } else if(toUpperCase.equals("CA")){
+            data = ar();
+        } else if (toUpperCase.equals("CA")) {
             finalState = "CA";
-        } else if(toUpperCase.equals("CO")){
+            data = ca();
+        } else if (toUpperCase.equals("CO")) {
             finalState = "CO";
-        } else if(toUpperCase.equals("CT")){
+            data = co();
+        } else if (toUpperCase.equals("CT")) {
             finalState = "CT";
-        } else if(toUpperCase.equals("DE")){
+            data = ct();
+        } else if (toUpperCase.equals("DE")) {
             finalState = "DE";
-        } else if(toUpperCase.equals("DC")){
+            data = de();
+        } else if (toUpperCase.equals("DC")) {
             finalState = "DC";
-        } else if(toUpperCase.equals("FL")){
+            data = dc();
+        } else if (toUpperCase.equals("FL")) {
             finalState = "FL";
-        } else if(toUpperCase.equals("GA")){
+            data = fl();
+        } else if (toUpperCase.equals("GA")) {
             finalState = "GA";
-        } else if(toUpperCase.equals("HI")){
+            data = ga();
+        } else if (toUpperCase.equals("HI")) {
             finalState = "HI";
-        } else if(toUpperCase.equals("ID")){
+            data = hi();
+        } else if (toUpperCase.equals("ID")) {
             finalState = "ID";
-        } else if(toUpperCase.equals("IL")){
+            data = id();
+        } else if (toUpperCase.equals("IL")) {
             finalState = "IL";
-        } else if(toUpperCase.equals("IN")){
+            data = il();
+        } else if (toUpperCase.equals("IN")) {
             finalState = "IN";
-        } else if(toUpperCase.equals("IA")){
+            data = in();
+        } else if (toUpperCase.equals("IA")) {
             finalState = "IA";
-        } else if(toUpperCase.equals("KS")){
+            data = ia();
+        } else if (toUpperCase.equals("KS")) {
             finalState = "KS";
-        } else if(toUpperCase.equals("KY")){
+            data = ks();
+        } else if (toUpperCase.equals("KY")) {
             finalState = "KY";
-        } else if(toUpperCase.equals("LA")){
+            data = ky();
+        } else if (toUpperCase.equals("LA")) {
             finalState = "LA";
-        } else if(toUpperCase.equals("ME")){
+            data = la();
+        } else if (toUpperCase.equals("ME")) {
             finalState = "ME";
-        } else if(toUpperCase.equals("MD")){
+            data = me();
+        } else if (toUpperCase.equals("MD")) {
             finalState = "MD";
-        } else if(toUpperCase.equals("MA")){
+            data = md();
+        } else if (toUpperCase.equals("MA")) {
             finalState = "MA";
-        } else if(toUpperCase.equals("MI")){
+            data = ma();
+        } else if (toUpperCase.equals("MI")) {
             finalState = "MI";
-        } else if(toUpperCase.equals("MN")){
+            data = mi();
+        } else if (toUpperCase.equals("MN")) {
             finalState = "MN";
-        } else if(toUpperCase.equals("MS")){
+            data = mn();
+        } else if (toUpperCase.equals("MS")) {
             finalState = "MS";
-        } else if(toUpperCase.equals("MO")){
+            data = ms();
+        } else if (toUpperCase.equals("MO")) {
             finalState = "MO";
-        } else if(toUpperCase.equals("MT")){
+            data = mo();
+        } else if (toUpperCase.equals("MT")) {
             finalState = "MT";
-        } else if(toUpperCase.equals("NE")){
+            data = mt();
+        } else if (toUpperCase.equals("NE")) {
             finalState = "NE";
-        } else if(toUpperCase.equals("NV")){
+            data = ne();
+        } else if (toUpperCase.equals("NV")) {
             finalState = "NV";
-        } else if(toUpperCase.equals("NH")){
+            data = nv();
+        } else if (toUpperCase.equals("NH")) {
             finalState = "NH";
-        } else if(toUpperCase.equals("NJ")){
+            data = nh();
+        } else if (toUpperCase.equals("NJ")) {
             finalState = "NJ";
-        } else if(toUpperCase.equals("NM")){
+            data = nj();
+        } else if (toUpperCase.equals("NM")) {
             finalState = "NM";
-        } else if(toUpperCase.equals("NY")){
+            data = nm();
+        } else if (toUpperCase.equals("NY")) {
             finalState = "NY";
-        } else if(toUpperCase.equals("NC")){
+            data = ny();
+        } else if (toUpperCase.equals("NC")) {
             finalState = "NC";
-        } else if(toUpperCase.equals("ND")){
+            data = nc();
+        } else if (toUpperCase.equals("ND")) {
             finalState = "ND";
-        } else if(toUpperCase.equals("OH")){
+            data = nd();
+        } else if (toUpperCase.equals("OH")) {
             finalState = "OH";
-        } else if(toUpperCase.equals("OK")){
+            data = oh();
+        } else if (toUpperCase.equals("OK")) {
             finalState = "OK";
-        } else if(toUpperCase.equals("OR")){
+            data = ok();
+        } else if (toUpperCase.equals("OR")) {
             finalState = "OR";
-        } else if(toUpperCase.equals("PA")){
+            data = or();
+        } else if (toUpperCase.equals("PA")) {
             finalState = "PA";
-        } else if(toUpperCase.equals("PR")){
+            data = pa();
+        } else if (toUpperCase.equals("PR")) {
             finalState = "PR";
-        } else if(toUpperCase.equals("RI")){
+            data = pr();
+        } else if (toUpperCase.equals("RI")) {
             finalState = "RI";
-        } else if(toUpperCase.equals("SC")){
+            data = ri();
+        } else if (toUpperCase.equals("SC")) {
             finalState = "SC";
-        } else if(toUpperCase.equals("SD")){
+            data = sc();
+        } else if (toUpperCase.equals("SD")) {
             finalState = "SD";
-        } else if(toUpperCase.equals("TN")){
+            data = sd();
+        } else if (toUpperCase.equals("TN")) {
             finalState = "TN";
-        } else if(toUpperCase.equals("TX")){
+            data = tn();
+        } else if (toUpperCase.equals("TX")) {
             finalState = "TX";
-        } else if(toUpperCase.equals("UT")){
+            data = tx();
+        } else if (toUpperCase.equals("UT")) {
             finalState = "UT";
-        } else if(toUpperCase.equals("VT")){
+            data = ut();
+        } else if (toUpperCase.equals("VT")) {
             finalState = "VT";
-        } else if(toUpperCase.equals("VA")){
+            data = vt();
+        } else if (toUpperCase.equals("VA")) {
             finalState = "VA";
-        } else if(toUpperCase.equals("WA")){
+            data = va();
+        } else if (toUpperCase.equals("WA")) {
             finalState = "WA";
-        } else if(toUpperCase.equals("WV")){
+            data = wa();
+        } else if (toUpperCase.equals("WV")) {
             finalState = "WV";
-        } else if(toUpperCase.equals("WI")){
+            data = wv();
+        } else if (toUpperCase.equals("WI")) {
             finalState = "WI";
-        } else if(toUpperCase.equals("WY")){
+            data = wi();
+        } else if (toUpperCase.equals("WY")) {
             finalState = "WY";
+            data = wy();
+        } else if (toUpperCase.equals("US")) {
+            finalState = "US";
+            data = us();
         } else {
             finalState = "Null";
         }
-            
 
         String vaccineStatus = "";
 
@@ -529,10 +592,31 @@ public class PrimaryController {
 
         String recommendUser = "";
 
-        if (age.equals("Rather Not Say") || finalState.equals("Null") || vaccineStatus.equals("Rather Not Say")) {
+        if (finalState.equals("Null")) {
 
             recommendUser = "based on your input, we are unable to generate a completly accurate recommendation, however based on your input, we recommend that...";
-
+            recomendation.setText(recommendUser);
+        } else {
+            rcd.setText(finalState + " Covid Data Breakdown" + " (If you want to check data for specific state please enter State Abbreviation in the text field on the right)");
+            JSONObject deeperData = data;
+            data = (JSONObject) data.get("actuals");
+            
+             recomendation.setText("New Cases: " + data.get("newCases")
+                    +"\nAll time cases: " + data.get("cases") 
+                    + "\nPositive Tests: " + data.get("positiveTests") 
+                    + "\nVaccines Distributed: " + data.get("vaccinesDistributed") 
+                    + "\nVaccines Administered: " + data.get("vaccinesAdministered"));
+//            
+            rcd2.setText("New Deaths: " + data.get("newDeaths") + "\nAll time Deaths: " + data.get("deaths") 
+                    + "\nNegative Tests: " + data.get("negativeTests")+ "\nVaccines Initiated: " + data.get("vaccinationsInitiated")
+                    + "\nAvailaible ICU Beds: " + ((JSONObject)data.get("icuBeds")).get("capacity"));
+//      
+            
+            deeperData = (JSONObject) deeperData.get("metrics");
+            rcd3.setText("Positivity Ratio: " + deeperData.get("testPositivityRatio") + "\nCase Density: " + deeperData.get("caseDensity") 
+                    + "\nWeekly New Cases Per 100k: " + deeperData.get("weeklyNewCasesPer100k")+ "\nInfection Rate: " + deeperData.get("infectionRate")
+                    +"\nVaccines Completed Ratio: " + deeperData.get("vaccinationsCompletedRatio"));
         }
+
     }
 }

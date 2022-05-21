@@ -90,6 +90,8 @@ public class PrimaryController {
     private Label rcd3;
     @FXML
     private Label recomendation;
+    @FXML
+    private Label dataInfo;
 
     //the following array is full of state abbriviations for input validation
     private String[] stateList = {"AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY", "NULL"};
@@ -266,6 +268,8 @@ public class PrimaryController {
         s1.getData().add(new XYChart.Data("Wisconsin", WIobj.get("newCases")));//add wisconsion data to bar chart 
         s1.getData().add(new XYChart.Data("Wyoming", WYobj.get("newCases")));//add wyoming data to bar chart
         bar.getData().add(s1);
+        
+        dataInfo.setText("Here on the right\nThe state feild works and shows the data.\nBut we were unable to get Demographic working\nand Ethnicity or Vaccination Status\nin this sprint because we got tyhe access\nto those specific data very late in the sprint." );
 
         rcd.setText("United States Covid Data Breakdown" + " (If you want to check data for specific state please enter State Abbreviation in the text field on the right)");
         JSONObject us = us();
@@ -595,7 +599,10 @@ public class PrimaryController {
         if (finalState.equals("Null")) {
 
             recommendUser = "based on your input, we are unable to generate a completly accurate recommendation, however based on your input, we recommend that...";
-            recomendation.setText(recommendUser);
+            rcd.setText(recommendUser);
+            recomendation.setText("");
+            rcd2.setText("");
+            rcd3.setText("");
         } else {
             rcd.setText(finalState + " Covid Data Breakdown" + " (If you want to check data for specific state please enter State Abbreviation in the text field on the right)");
             JSONObject deeperData = data;

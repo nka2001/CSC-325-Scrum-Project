@@ -43,14 +43,8 @@
          </children>
       </AnchorPane>
    </top>
-   <left>
-      <AnchorPane prefHeight="778.0" prefWidth="280.0" BorderPane.alignment="CENTER">
-          
-          
-      </AnchorPane>
-   </left>
    <right>
-      <AnchorPane prefHeight="778.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="778.0" prefWidth="337.0" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutX="34.0" layoutY="108.0" prefHeight="166.0" prefWidth="236.0">
                <children>
@@ -174,14 +168,14 @@
       </AnchorPane>
    </right>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="778.0" prefWidth="1363.0" BorderPane.alignment="CENTER">
          <children>
-             <Label fx:id="rcd" layoutY="550.0" prefHeight="35.0" prefWidth="1178.0" text="Recommendations:">
+             <Label fx:id="rcd" layoutX="20" layoutY="550.0" prefHeight="35.0" prefWidth="1178.0" text="Recommendations:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <BarChart fx:id="bar" layoutX="21.0" layoutY="7.0" opacity="0.0" prefHeight="558.0" prefWidth="1071.0" title="Covid 19 Cases by State">
+            <BarChart fx:id="bar" layoutX="26.0" opacity="0.0" prefHeight="558.0" prefWidth="1071.0" title="Covid 19 Cases by State">
                <xAxis>
                   <CategoryAxis side="BOTTOM" />
                </xAxis>
@@ -189,15 +183,16 @@
                   <NumberAxis side="LEFT" />
                </yAxis>
             </BarChart>
-            <Label fx:id="recomendation" layoutX="1.0" layoutY="583.0" prefHeight="185.0" prefWidth="282.0" >
+            <Label fx:id="recomendation" layoutX="20" layoutY="583.0" prefHeight="185.0" prefWidth="282.0">
                 <font><Font size="16.0" /></font>
             </Label>
-            <Label fx:id="rcd2" layoutX="314.0" layoutY="581.0" prefHeight="189.0" prefWidth="275.0" text="rcd2" >
+            <Label fx:id="rcd2" layoutX="314.0" layoutY="581.0" prefHeight="189.0" prefWidth="275.0" text="rcd2">
                 <font><Font size="16.0" /></font>
             </Label>
-            <Label fx:id="rcd3" layoutX="590.0" layoutY="588.0" prefHeight="184.0" prefWidth="268.0" text="rcd3" >
+            <Label fx:id="rcd3" layoutX="590.0" layoutY="588.0" prefHeight="184.0" prefWidth="268.0" text="rcd3">
                 <font><Font size="16.0" /></font>
             </Label>
+            <Label fx:id="dataInfo" layoutX="1159.0" layoutY="215.0" prefHeight="233.0" prefWidth="300.0" text=""/>
          </children>
       </AnchorPane>
    </center>

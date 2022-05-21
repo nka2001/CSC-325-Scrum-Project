@@ -272,16 +272,17 @@ public class PrimaryController {
         dataInfo.setText("Here on the right\nThe state feild works and shows the data.\nBut we were unable to get Demographic working\nand Ethnicity or Vaccination Status\nin this sprint because we got tyhe access\nto those specific data very late in the sprint." );
 
         rcd.setText("United States Covid Data Breakdown" + " (If you want to check data for specific state please enter State Abbreviation in the text field on the right)");
-        JSONObject us = us();
-        us = (JSONObject) us.get("actuals");
+        JSONObject us = us();//calls the JSON method "us" that gets the data from the United States
+        us = (JSONObject) us.get("actuals");//gets the data using actuals from the API
 
+        //the following section will print out data related to the api call, based on the state
             recomendation.setText("New Cases: " + us.get("newCases")
                     +"\nAll time cases: " + us.get("cases") 
                     + "\nPositive Tests: " + us.get("positiveTests") 
                     + "\nVaccines Distributed: " + us.get("vaccinesDistributed") 
                     + "\nVaccines Administered: " + us.get("vaccinesAdministered"));
 //            
-            rcd2.setText("New Deaths: " + us.get("newDeaths") + "\nAll time Deaths: " + us.get("deaths") 
+            rcd2.setText("New Deaths: " + us.get("newDeaths") + "\nAll time Deaths: " + us.get("deaths") //sets the text label to text provided by the API
                     + "\nNegative Tests: " + us.get("negativeTests")+ "\nVaccines Initiated: " + us.get("vaccinationsInitiated")
                     + "\nAvailaible ICU Beds: " + ((JSONObject)us.get("icuBeds")).get("capacity"));
 //      
@@ -299,12 +300,10 @@ public class PrimaryController {
      */
     private void startAnimations() {
 
-        FadeTransition ft2 = new FadeTransition(Duration.seconds(5), bar);
-        ft2.setFromValue(0.);
-        ft2.setToValue(1.);
-
-        SequentialTransition st = new SequentialTransition(ft2);
-        st.play();
+        FadeTransition ft2 = new FadeTransition(Duration.seconds(5), bar);//create an animation for the bar chart to fade in
+        ft2.setFromValue(0.);//change the opacity (transparent) to visible
+        ft2.setToValue(1.);//sets the opacity value to fade towards a value of 1, which is visible
+        ft2.play();
 
     }
 
@@ -401,8 +400,9 @@ public class PrimaryController {
 
         }
         String finalState = "";
-        String toUpperCase = getState.toUpperCase();
+        String toUpperCase = getState.toUpperCase(); //convert the string to uppercase for logic check
         JSONObject data = null;
+        
         //the following if/else-if/else statements check for valid state abbreviations, if there is no valid abbreviation then finalState is set to null
         if (toUpperCase.equals("AL")) {
             finalState = "AL";
@@ -567,31 +567,31 @@ public class PrimaryController {
             finalState = "Null";
         }
 
-        String vaccineStatus = "";
+        String vaccineStatus = "";//vaccine status is grabbed from the user 
 
-        if (yesVacc.isSelected()) {
-            vaccineStatus = yesVacc.getText();
-        } else if (noVacc.isSelected()) {
-            vaccineStatus = noVacc.getText();
-        } else if (VaxNotSay.isSelected()) {
-            vaccineStatus = VaxNotSay.getText();
+        if (yesVacc.isSelected()) {//if the radio button yesVacc is selected then
+            vaccineStatus = yesVacc.getText();//the status is set to the text within the radio button
+        } else if (noVacc.isSelected()) {//if radio button noVacc is selected then 
+            vaccineStatus = noVacc.getText();//the status is set to the text within the radio button
+        } else if (VaxNotSay.isSelected()) {//if the radio button vaxNotSay is selected then
+            vaccineStatus = VaxNotSay.getText();//the status is set to the text within the radio button
         }
 
         String age = "";
-        if (uage1.isSelected()) {
-            age = uage1.getText();
-        } else if (uage2.isSelected()) {
-            age = uage2.getText();
-        } else if (uage3.isSelected()) {
-            age = uage3.getText();
-        } else if (uage4.isSelected()) {
-            age = uage4.getText();
-        } else if (uage5.isSelected()) {
-            age = uage5.getText();
-        } else if (uageNotSay.isSelected()) {
-            age = uageNotSay.getText();
+        if (uage1.isSelected()) {//if the radio button uage1 is selected
+            age = uage1.getText();//then age is set to that buttons text
+        } else if (uage2.isSelected()) {//if the radio button uage2 is selected 
+            age = uage2.getText();//then the age is set to that buttons text
+        } else if (uage3.isSelected()) {//if the radio button uage3 is selected
+            age = uage3.getText(); //then the age is set to that buttons text
+        } else if (uage4.isSelected()) {//if the radio button uage4 is selected
+            age = uage4.getText();//then the age is set to that buttons text
+        } else if (uage5.isSelected()) {//if the radio button uage5 is selected
+            age = uage5.getText();//then the age is set to that buttons text
+        } else if (uageNotSay.isSelected()) {//if the radio button uageNotSay is selected
+            age = uageNotSay.getText();//then the age is set to that buttons text 
         } else {
-            age = "Error";
+            age = "Error";//otherwise the age is set to error 
         }
 
         String recommendUser = "";
@@ -625,5 +625,8 @@ public class PrimaryController {
                     +"\nVaccines Completed Ratio: " + deeperData.get("vaccinationsCompletedRatio"));
         }
 
+        
     }
+    
+    
 }
